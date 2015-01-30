@@ -1,5 +1,5 @@
 var events = require('events');
-var localChannel = require('../lib/localChannel');
+var localAdapter = require('../lib/localAdapter');
 var slave = require('../index');
 
 require('should');
@@ -11,7 +11,7 @@ describe('microsvc-slave', function () {
   describe('on startup', function () {
     beforeEach(function () {
       slave.configure(function (slave) {
-        masterMgr = localChannel(slave);
+        masterMgr = localAdapter(slave);
       });
     });
     afterEach(function () {

@@ -32,7 +32,7 @@ Slave.prototype.initialize = function initialize (options) {
   this._startHeartbeat();
 
   this.emit('online', this);
-  this.channel.emit('online', this._createSlavePayload());
+  this.channel.emit('online', this._createSlavePayload(this));
 };
 
 Slave.prototype.stop = function stop () {
@@ -40,10 +40,10 @@ Slave.prototype.stop = function stop () {
   clearInterval(this.heartbeatInterval);
   this.slaves = {};
   this.emit('offline', this);
-  this.channel.emit('offline', this._createSlavePayload());
+  this.channel.emit('offline', this._createSlavePayload(this));
 };
 
-Slave.prototype._createSlavePayload = function _createSlavePayload () {
+Slave.prototype._createSlavePayload = function _createSlavePayload (slave) {
   return {
     id: this.id
   };
@@ -52,7 +52,7 @@ Slave.prototype._createSlavePayload = function _createSlavePayload () {
 Slave.prototype._heartbeat = function _heartbeat () {
   debug('heartbeat');
   this.emit('heartbeat', this);
-  this.channel.emit('heartbeat', this._createSlavePayload());
+  this.channel.emit('heartbeat', this._createSlavePayload(this));
 };
 
 Slave.prototype._startHeartbeat = function _startHeartbeat () {
