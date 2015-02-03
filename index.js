@@ -32,7 +32,16 @@ Slave.prototype.initialize = function initialize (options) {
   this._startHeartbeat();
 
   this.emit('online', this);
+  
   this.channel.emit('online', this._createSlavePayload(this));
+};
+
+Slave.prototype.pauseHeartbeat = function pauseHeartbeat () {
+  clearInterval(this.heartbeatInterval);
+};
+
+Slave.prototype.resumeHeartbeat = function resumeHeartbeat () {
+  this._startHeartbeat();
 };
 
 Slave.prototype.stop = function stop () {
