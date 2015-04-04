@@ -26,7 +26,7 @@ Slave.prototype.initialize = function initialize (options) {
   this.id = options.id;
 
   if (options.heartbeatFrequency) {
-    this.heartbeatFrequency = heartbeatFrequency;
+    this.heartbeatFrequency = options.heartbeatFrequency;
   }
 
   this._startHeartbeat();
