@@ -1,6 +1,6 @@
 {
   "name": "microsvc-slave",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "simple module to make your microservice a slave with ability to report to a master",
   "main": "index.js",
   "scripts": {
