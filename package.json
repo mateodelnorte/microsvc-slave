@@ -13,6 +13,6 @@
   },
   "devDependencies": {
     "mocha": "2.5.3",
-    "should": "4.6.5"
+    "should": "13.2.3"
   }
 }
