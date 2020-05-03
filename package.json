@@ -12,7 +12,7 @@
     "debug": "^4.0.0"
   },
   "devDependencies": {
-    "mocha": "2.5.3",
+    "mocha": "7.1.2",
     "should": "13.2.3"
   }
 }
